@@ -9,10 +9,10 @@
 
 Athletes::Athletes(string firstName, string secondName, float bestAchicvement,
 		string nationality) {
-	setFirstName(firstName);
-	setSecondName(secondName);
-	setBestAchicvement(bestAchicvement);
-	setNationality(nationality);
+		setFirstName(firstName);
+		setSecondName(secondName);
+		setBestAchicvement(bestAchicvement);
+		setNationality(nationality);
 }
 Athletes::~Athletes() {}
 
@@ -43,8 +43,6 @@ const string& Athletes::getSecondName() const {
 void Athletes::setSecondName(const string& secondName) {
 	this->secondName = secondName;
 }
-
-
 
 void Athletes::print() {
 	cout<<"Athlete is: "<<"|"<<getFirstName()<<" "<<getSecondName()<<"|"<<

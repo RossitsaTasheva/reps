@@ -15,20 +15,22 @@
 #include "Athletes.h"
 #include <string>
 using namespace std;
-const string types[]={"NO type","Qualification","Quarterfinals","Semifinals","Final"};
+//const string types[]={"NO type","Qualification","Quarterfinals","Semifinals","Final"};
+enum types {NOtype,Qualification,Quarterfinals,Semifinals,Final};
 class Starts {
 
 public:
-	Starts(Date &date, Time& time, Disciplines& dis , string type);
+	Starts();
+	Starts(Date &, Time& , Disciplines&  ,vector<Athletes*>& , types);
 
 	virtual ~Starts();
 
 	void print();
 
-	void inputAtlet(Athletes&);
+	void inputAtlet(Athletes *athStarts);
 
-	const vector<Athletes>& getAthStarts() const;
-	void setAthStarts(const vector<Athletes>& athStarts);
+	vector<unsigned> searchAthlet(const string& firstName = "", const string &secondName = "",const float& bestAchicvement = 0.0,
+	const string &nationality = "")const;
 
 	const Date& getDate() const;
 	void setDate(const Date& date);
@@ -39,15 +41,19 @@ public:
 	const Time& getTime() const;
 	void setTime(const Time& time);
 
-	const string& getType() const;
-	void setType(const string& type);
+	types getType() const;
+		void setType(types type);
+
+	const vector<Athletes*>& getAthStarts() const;
+	void setAthStarts(const vector<Athletes*>& athStarts);
 
 private:
 	Date date;
 	Time time;
 	Disciplines dis;
-	vector<Athletes> athStarts;
-	string type;
+	vector<Athletes*> athStarts;
+	types type;
+
 };
 
 #endif /* STARTS_H_ */
