@@ -3,6 +3,8 @@
 #include <iostream>
 
 using namespace std;
+
+/*4. При втори клик върху картинката смалете изображението на 100 на 100. */
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 
@@ -20,7 +22,7 @@ void Close();
 
 int main(int args, char* argc[]) {
 	InitSDL() ? cerr << "" : cerr << "Failed to init sdl.";
-	LoadMedia("pattern.png") ? cerr << "" : cerr << "Failed to load media";
+	LoadMedia("png_magic_ball.png") ? cerr << "" : cerr << "Failed to load media";
 
 	bool quit = false;
 	SDL_Event e;

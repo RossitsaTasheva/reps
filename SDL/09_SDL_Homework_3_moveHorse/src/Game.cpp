@@ -31,14 +31,19 @@ void Game::LoadMedia() {
 		std::cerr << "Unable to load image " << "horse.jpg"
 				<< "! SDL_image Error: " << IMG_GetError();
 	}
-	SDL_SetColorKey(loadedSurface1, SDL_TRUE,
-				SDL_MapRGB(loadedSurface1->format, 255, 255, 255));
+//	SDL_SetColorKey(loadedSurface1, SDL_TRUE,
+//				SDL_MapRGB(loadedSurface1->format, 255, 255, 255));
 
 	SDL_Surface* loadedSurface2 = IMG_Load("image.jpg");
 		if (loadedSurface2 == NULL) {
 			std::cerr << "Unable to load image " << "image.jpg"
 					<< "! SDL_image Error: " << IMG_GetError();
 		}
+		SDL_Surface* loadedSurface3 = IMG_Load("nat.jpg");
+				if (loadedSurface3 == NULL) {
+					std::cerr << "Unable to load image " << "nat.jpg"
+							<< "! SDL_image Error: " << IMG_GetError();
+				}
 
 	/*SDL_SetColorKey(loadedSurface2, SDL_TRUE,
 			SDL_MapRGB(loadedSurface2->format, 255, 255, 255));*/
@@ -52,12 +57,18 @@ void Game::LoadMedia() {
 	if (background == NULL) {
 		cerr << "Failed to convert image surface to texture2.";
 	}
+	imageNat = SDL_CreateTextureFromSurface(renderer, loadedSurface3);
+		if (imageNat == NULL) {
+			cerr << "Failed to convert image surface to texture3.";
+		}
 	SDL_FreeSurface(loadedSurface1);
 	SDL_FreeSurface(loadedSurface2);
+	SDL_FreeSurface(loadedSurface3);
 }
 
 void Game::Close() {
 	//SDL_DestroyTexture(rects);
+	SDL_DestroyTexture(imageNat);
 	SDL_DestroyTexture(background);
 	SDL_DestroyTexture(currentTexture);
 	SDL_DestroyRenderer(renderer);
@@ -117,8 +128,26 @@ void Game::ModifyImageSize(int w, int h, SDL_Rect& rect) {
 		}
 }
 
-bool Game::touchImage(SDL_Rect* rect) {
+bool Game::touchLeft(SDL_Rect* rect) {
 	if(rect->x == WINDOW_WIDTH-IMAGE_WIDTH){
+	return true;
+	}
+	return false;
+}
+bool Game::touchRight(SDL_Rect* rect) {
+	if(rect->y == WINDOW_HEIGHT-IMAGE_HEIGHT){
+	return true;
+	}
+	return false;
+}
+bool Game::touchUp(SDL_Rect* rect) {
+	if(rect->x == 0){
+	return true;
+	}
+	return false;
+}
+bool Game::touchDown(SDL_Rect* rect) {
+	if(rect->y == 0){
 	return true;
 	}
 	return false;

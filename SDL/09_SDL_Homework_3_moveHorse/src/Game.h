@@ -33,9 +33,14 @@ public:
 	bool IsInsideImage(SDL_Event* ,SDL_Rect*);
 	void ModifyPosition(int, int, SDL_Rect*);
 	void ModifyImageSize(int, int, SDL_Rect&);
-	bool touchImage(SDL_Rect*);
+
+	bool touchLeft(SDL_Rect*);
+	bool touchRight(SDL_Rect* rect);
+	bool touchUp(SDL_Rect* rect);
+	bool touchDown(SDL_Rect* rect);
 	SDL_Texture* currentTexture;
 	SDL_Texture* background;
+	SDL_Texture* imageNat;
 //	void RenderRandomRect();
 	SDL_Renderer* getRenderer();
 
