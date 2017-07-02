@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<students>
+	<student id="11111">
+		<name>Joe Average</name>
+		<age>21</age>
+		<major>Biology</major>
+		<address>
+			<street>Ivan Asen</street>
+			<city>Sofia</city>
+			<country>Bulgaria</country>
+			<zipCode>1547</zipCode>
+		</address>
+		<grades>
+			<math>4</math>
+			<BEL>6</BEL>
+			<DTI>3</DTI>
+		</grades>
+	</student>
+	<student id="22222">
+		<name>Jack Doe</name>
+		<age>18</age>
+		<major>Physics</major>
+		<address>
+			<street>Damareds</street>
+			<city>Munster</city>
+			<country>Germany</country>
+			<zipCode>2356</zipCode>
+		</address>
+		<grades>
+			<math>4</math>
+			<BEL>6</BEL>
+			<DTI>3</DTI>
+		</grades>
+	</student>
+</students>
